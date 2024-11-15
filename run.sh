@@ -11,6 +11,9 @@
 ./setup.sh
 
 if hostname -f | grep gadi.nci.org.au > /dev/null; then
+    # TODO(Sean): we can prepend_path to PATH using the MPI install directory
+    # libmpi_path=$(ldd cable-mpi | grep -m 1 libmpi | awk '/=>/{print $(NF-1)}')
+    # prepend_path PATH "${libmpi_path/lib*/bin}"
     if ldd cable-mpi | grep openmpi/4.1.4 > /dev/null; then
         module add openmpi/4.1.4
     elif ldd cable-mpi | grep intel-mpi/2019.5.281 > /dev/null; then

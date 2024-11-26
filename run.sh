@@ -11,17 +11,14 @@
 ./setup.sh
 
 if hostname -f | grep gadi.nci.org.au > /dev/null; then
-    # TODO(Sean): we can prepend_path to PATH using the MPI install directory
-    # libmpi_path=$(ldd cable-mpi | grep -m 1 libmpi | awk '/=>/{print $(NF-1)}')
-    # prepend_path PATH "${libmpi_path/lib*/bin}"
-    if ldd cable-mpi | grep openmpi/4.1.4 > /dev/null; then
-        module add openmpi/4.1.4
-    elif ldd cable-mpi | grep intel-mpi/2019.5.281 > /dev/null; then
-        module add intel-mpi/2019.5.281
-    else
+    libmpi_path_segments=($(ldd cable-mpi | awk '/=>/{print $(NF-1)}' | sed 's/\// /g' | grep libmpi.so))
+    mpi_modulefile="${libmpi_path_segments[1]}/${libmpi_path_segments[2]}" # module_name/module_version
+    if ! module is-avail ${mpi_modulefile}; then
         echo -e "Error: executable compiled with unknown MPI implementation."
         exit 1
     fi
+    echo "Loading module: ${mpi_modulefile}"
+    module load ${mpi_modulefile}
 fi
 
 mpiexec -n $PBS_NCPUS ./cable-mpi > logs/cable_log_out.txt 2>&1

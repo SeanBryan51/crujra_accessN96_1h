@@ -8,6 +8,8 @@
 #PBS -l storage=gdata/rp23+gdata/tm70
 #PBS -j oe
 
+NCPUS_DEFAULT=4
+
 ./setup.sh
 
 if hostname -f | grep gadi.nci.org.au > /dev/null; then
@@ -19,6 +21,7 @@ if hostname -f | grep gadi.nci.org.au > /dev/null; then
     fi
     echo "Loading module: ${mpi_modulefile}"
     module load ${mpi_modulefile}
+    NCPUS=${PBS_NCPUS}
 fi
 
-mpiexec -n $PBS_NCPUS ./cable-mpi > logs/cable_log_out.txt 2>&1
+mpiexec -n ${NCPUS:=${NCPUS_DEFAULT}} ./cable-mpi > logs/cable_log_out.txt 2>&1

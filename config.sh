@@ -14,4 +14,4 @@ INPUT=(
 
 # Use shell parameter expansion for runtime configurability - see
 # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html:
-: "${EXE:=/home/189/sb8430/cable/bin/cable-mpi}"
+: "${EXE:=/home/189/sb8430/cable/bin/cable}"

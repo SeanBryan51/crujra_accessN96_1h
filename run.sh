@@ -3,7 +3,7 @@
 #PBS -P tm70
 #PBS -q normal
 #PBS -l walltime=00:20:00
-#PBS -l ncpus=4
+#PBS -l ncpus=2
 #PBS -l mem=4GB
 #PBS -l storage=gdata/rp23+gdata/tm70
 #PBS -j oe

@@ -5,6 +5,11 @@
    filename%restart_in = 'input/restart.nc'
    filename%restart_out = 'restart/restart.nc'
    filename%type = 'input/crujra_accessN96_gridinfo.nc'
+   casafile%cnpipool = 'input/casa_restart.nc'
+   casafile%cnpepool = 'restart/casa_restart.nc'
+   casafile%cnpbiome = 'input/pftlookup.csv'
+   casafile%phen = 'input/modis_phenology_csiro.txt'
+   casafile%cnpflux = 'outputs/cnpflux_out.csv'
    vegparmnew = .TRUE.  ! using new format when true
    soilparmnew = .TRUE.  ! using new format when true
    spinup = .FALSE.
@@ -22,6 +27,7 @@
    output%patchfrac = .TRUE.  ! patchfrac output  
    output%params = .TRUE.  ! input parameters used to produce run
    output%balances = .TRUE.  ! energy and water balances
+   output%casa = .TRUE.
    check%ranges = 0  ! variable ranges, input and output
    check%energy_bal = .TRUE.  ! energy balance
    check%mass_bal = .TRUE.  ! water/mass balance
@@ -31,8 +37,8 @@
    fixedCO2 =286.0 ! if not found in met file, in ppmv
    !spincasainput = ''    !FALSE   ! input required to spin casacnp offline
    spincasa = .FALSE.     ! spin casa before running the model if TRUE, and should be set to FALSE if spincasainput 
-   l_laiFeedbk = .FALSE.  ! using prognostic LAI
-   l_vcmaxFeedbk = .FALSE.  ! using prognostic Vcmax
+   l_laiFeedbk = .TRUE.  ! using prognostic LAI
+   l_vcmaxFeedbk = .TRUE.  ! using prognostic Vcmax
    ncciy = 1901   ! 0 for not using gswp
    redistrb = .FALSE.  ! Turn on/off the hydraulic redistribution
    wiltParam = 0.5
@@ -58,10 +64,10 @@
    cable_user%MetType = 'gswp3'
    CABLE_USER%YearStart = 0
    CABLE_USER%YearEnd = 0
-   cable_user%CASA_fromZero = .FALSE.
+   cable_user%CASA_fromZero = .TRUE.
    CABLE_USER%soil_thermal_fix =.TRUE.
-   l_casacnp=.FALSE. 
-   icycle=0
+   l_casacnp=.TRUE.
+   icycle=3
    gswpfile%mask = 'input/crujra_accessN96_reduced_landmask.nc'
    gswpfile%Rainf = 'input/crujra_access_Rainf_1901.nc'
    gswpfile%snowf = 'input/crujra_access_Snowf_1901.nc'

@@ -10,6 +10,7 @@
    casafile%cnpbiome = 'input/pftlookup.csv'
    casafile%phen = 'input/modis_phenology_csiro.txt'
    casafile%cnpflux = 'outputs/cnpflux_out.csv'
+   casafile%out = 'outputs/casa_out.nc'
    vegparmnew = .TRUE.  ! using new format when true
    soilparmnew = .TRUE.  ! using new format when true
    spinup = .FALSE.

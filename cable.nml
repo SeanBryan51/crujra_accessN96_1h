@@ -66,6 +66,7 @@
    CABLE_USER%YearStart = 0
    CABLE_USER%YearEnd = 0
    cable_user%CASA_fromZero = .TRUE.
+   cable_user%CASA_OUT_FREQ = 'monthly'
    CABLE_USER%soil_thermal_fix =.TRUE.
    l_casacnp=.TRUE.
    icycle=3

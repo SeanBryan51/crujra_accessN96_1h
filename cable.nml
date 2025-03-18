@@ -11,7 +11,7 @@
    casafile%phen = 'input/modis_phenology_csiro.txt'
    casafile%cnpflux = 'outputs/cnpflux_out.csv'
    casafile%out = 'outputs/casa_out.nc'
-   casafile%c2cdumppath = 'restart/'
+   casafile%c2cdumppath = 'input/'
    vegparmnew = .TRUE.  ! using new format when true
    soilparmnew = .TRUE.  ! using new format when true
    spinup = .FALSE.
@@ -38,7 +38,7 @@
    logn = 88      ! log file number - declared in input module
    fixedCO2 =286.0 ! if not found in met file, in ppmv
    !spincasainput = ''    !FALSE   ! input required to spin casacnp offline
-   spincasa = .FALSE.     ! spin casa before running the model if TRUE, and should be set to FALSE if spincasainput
+   spincasa = .TRUE.     ! spin casa before running the model if TRUE, and should be set to FALSE if spincasainput
    l_laiFeedbk = .TRUE.  ! using prognostic LAI
    l_vcmaxFeedbk = .TRUE.  ! using prognostic Vcmax
    ncciy = 0   ! 0 for not using gswp
@@ -55,8 +55,8 @@
                                                  ! 1. BASIC
                                                  ! 1. NONE
    cable_user%CONSISTENCY_CHECK = .TRUE.      ! TRUE outputs combined fluxes at each timestep for comparisson to A control run 
-   cable_user%CASA_DUMP_READ = .FALSE.      ! TRUE reads CASA forcing from netcdf format
-   cable_user%CASA_DUMP_WRITE = .TRUE.      ! TRUE outputs CASA forcing in netcdf format
+   cable_user%CASA_DUMP_READ = .TRUE.      ! TRUE reads CASA forcing from netcdf format
+   cable_user%CASA_DUMP_WRITE = .FALSE.      ! TRUE outputs CASA forcing in netcdf format
    cable_user%SSNOW_POTEV = 'HDM'      ! Humidity Deficit Method
    output%averaging = 'monthly'
    cable_user%GS_SWITCH = 'medlyn'
@@ -66,7 +66,9 @@
    cable_user%MetType = 'gswp3'
    CABLE_USER%YearStart = 1901
    CABLE_USER%YearEnd = 1905
-   cable_user%CASA_fromZero = .TRUE.
+   cable_user%CASA_SPIN_STARTYEAR = 1901
+   cable_user%CASA_SPIN_ENDYEAR = 1905
+   cable_user%CASA_fromZero = .FALSE.
    cable_user%CASA_OUT_FREQ = 'monthly'
    CABLE_USER%soil_thermal_fix =.TRUE.
    l_casacnp=.TRUE.

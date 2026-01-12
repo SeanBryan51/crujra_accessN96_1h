@@ -5,7 +5,7 @@
 #PBS -l walltime=02:00:00
 #PBS -l ncpus=1
 #PBS -l mem=4GB
-#PBS -l storage=gdata/rp23+gdata/tm70
+#PBS -l storage=gdata/rp23+gdata/tm70+gdata/vk83
 #PBS -j oe
 
 NRUNS_DEFAULT=1

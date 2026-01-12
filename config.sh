@@ -9,7 +9,7 @@ INPUT=(
     '/g/data/rp23/data/no_provenance/met_forcing/crujra_accessN96_1h/Wind/*'
     '/g/data/rp23/data/no_provenance/gridinfo/crujra_accessN96_gridinfo.nc'
     '/g/data/rp23/data/no_provenance/landmask/crujra_accessN96_landmask.nc'
-    '/g/data/rp23/data/modis_phenology_csiro.txt'
+    '/g/data/vk83/prerelease/configurations/inputs/access-esm1p6/share/atmosphere/land/biogeochemistry/resolution_independent/2025.08.29/modis_phenology_csiro_13evergreen.txt'
     '/g/data/rp23/data/no_provenance/casa/pftlookup.csv'
     '/g/data/tm70/sb8430/crujra_accessN96_reduced_landmask/crujra_accessN96_reduced_landmask.nc'
 )

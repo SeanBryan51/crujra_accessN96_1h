@@ -8,7 +8,7 @@
    casafile%cnpipool = 'input/casa_restart.nc'
    casafile%cnpepool = 'restart/casa_restart.nc'
    casafile%cnpbiome = 'input/pftlookup.csv'
-   casafile%phen = 'input/modis_phenology_csiro.txt'
+   casafile%phen = 'input/modis_phenology_csiro_13evergreen.txt'
    casafile%cnpflux = 'outputs/cnpflux_out.csv'
    casafile%out = 'outputs/casa_out.nc'
    casafile%c2cdumppath = 'restart/'
